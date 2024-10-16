@@ -28,10 +28,14 @@
             </div>
         </form>
 
-        {% if produto %}
-            <div id="produtoExibido">
-                <h3>Produto Cadastrado:</h3>
-                <p>{{ produto.exibir() }}</p>
+        {% if produtos %}
+            <div id="listaProdutos">
+                <h3>Produtos Cadastrados:</h3>
+                <ul>
+                    {% for produto in produtos %}
+                        <li>{{ produto.exibir() }}</li> <a href="/atualizar/{{ loop.index0 }}">[Atualizar]</a>
+                    {% endfor %}                    
+                </ul>
             </div>
         {% endif %}
     </div>
